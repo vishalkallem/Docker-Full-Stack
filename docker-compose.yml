@@ -11,6 +11,13 @@ services:
         image: redis:latest
         restart: always
 
+    nginx:
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '8080:80'
     api:
         build:
             context: ./server
